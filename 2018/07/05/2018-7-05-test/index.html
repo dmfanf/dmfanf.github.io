@@ -88,7 +88,7 @@
 <meta property="og:description" content="这是一个test">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pbdwt0fe6.bkt.clouddn.com/blog/20180705/165151943.jpg">
-<meta property="og:updated_time" content="2018-07-06T02:50:34.053Z">
+<meta property="og:updated_time" content="2018-07-06T03:06:01.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="test">
 <meta name="twitter:description" content="这是一个test">
@@ -365,14 +365,7 @@
 
       
         <p>这是一个test<br><img src="http://pbdwt0fe6.bkt.clouddn.com/blog/20180705/165151943.jpg" alt="mark"><br><a id="more"></a></p>
-
-
-	<div class="row">
-		<iframe src="https://drive.google.com/open?id=1TTVnLR15SoLquqQVXmatjj-Y7TFclcVI" style="width:100%; height:550px"></iframe>
-	</div>
-
-
-
+<p><a href="!--￼0--">pdf</a></p>
 <h1 id="赛题说明"><a href="#赛题说明" class="headerlink" title="赛题说明"></a>赛题说明</h1><p>给定用户信息表，用户在过去一年内的订单数据表，行为数据表以及用户对商品的评分表，预测用户在未来一个月内是否会购买目标商品以及购买的时间。<br>评测方式：<br>针对是否购买及购买时间，有两个评价指标：<br>(1) $S_1=\frac{\sum_{i=1}^N w_io_i}{\sum_{i=1}^N w_i}$，其中$w_i=\frac{1}{1+ln(i)}$，$o_i$代表预测的第$i$个用户的正确标志，预测正确则$o_i=1$，否则$o_i=0$。$N$为选手提交的记录数。<br>（2）$S_2=\frac{\sum_{u\in U_r} f(u)}{|U_r|}$，$f(u)=<br>\begin{cases}<br>0,&amp; u\notin U_r \<br>\frac{10}{10+d_u^2},&amp; u \in U_r<br>\end{cases}<br>$，其中$U_r$为答案用户集合，$d_u$表示用户$u$的预测日期与真实日期之间的距离。<br>最终提交得分为：$S=\alpha S_1+(1-\alpha)S_2$，$\alpha=0.4$</p>
 <h1 id="解决方案概述"><a href="#解决方案概述" class="headerlink" title="解决方案概述"></a>解决方案概述</h1><p>赛题中提供了用户信息表（user_info)，商品信息表(sku_info)，用户行为表（user_action)，用户订单表(user_order)，用户评分表(user_comment)。A榜的预测时间段为2017-5-1至2017-5-31。其中user_action，user_order，user_comment三个表的时间段为2017-5-1前12个月。<br>所有用户在2017-2-1至2-17-4-30时间段内一定购买过目标商品{101,30}。因此从user_order表中提取label时，时间可以限制在这三个月之内。<br>特征提取来源主要是user_action表和user_order表，分别从两个表提取特征后，再提取两个表之间的交互信息。<br>使用提取的特征，针对S1和S2分别训练xgboost，其任务分别是分类和回归。其次训练randomforest,adaboost,gbdt,neural network，使用stacking方法进行模型融合。</p>
 <h1 id="数据集划分"><a href="#数据集划分" class="headerlink" title="数据集划分"></a>数据集划分</h1><p>采用滑窗的方法得到3份数据集</p>
