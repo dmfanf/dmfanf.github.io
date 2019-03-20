@@ -343,6 +343,195 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://dmfanf.github.io/2018/08/06/使用hexo搭建个人博客/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fanf-zhang"/>
+      <meta itemprop="description" content="技术 & 学习 & 生活"/>
+      <meta itemprop="image" content="/images/touxiang1.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fanf's blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/06/使用hexo搭建个人博客/" class="post-title-link" itemprop="url">使用hexo搭建个人博客</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-06 12:04:24" itemprop="dateCreated datePublished" datetime="2018-08-06T12:04:24+08:00">2018-08-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-20 21:59:49" itemprop="dateModified" datetime="2019-03-20T21:59:49+08:00">2019-03-20</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/教程/" itemprop="url" rel="index"><span itemprop="name">教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p>hexo的安装配置以及插件的使用，hexo的使用<br><!--more--></p>
+<p>配置方法参考网站：<a href="https://www.jianshu.com/p/4818be9093f5" target="_blank" rel="noopener">使用Hexo搭建自己的个人博客</a></p>
+<p>我的博客中安装的插件有：gitment和mathjax，都是NEXT主题中自带的</p>
+<ol>
+<li>图床选择<br><a href="https://www.jianshu.com/p/a200f116c3ce" target="_blank" rel="noopener">一次艰难的图床选择经历</a>。我选择的是微博图床，在picgo中的上传方式是cookie。<br>但我在笔记中插入图片不使用图床，只使用复制粘贴的方式。因为为知笔记会把笔记同步到手机设备上，因此相当于给图片进行了一次备份。如果在笔记本中也使用图床的话，万一图床出问题了，还需要图片找回等等操作，很麻烦。</li>
+<li>gitment开启评论功能<br>开启评论功能时出现错误：<code>Error：validation failed</code>，解决方案：<a href="https://blog.csdn.net/github_19529589/article/details/80902612" target="_blank" rel="noopener">gitment Error：validation failed错误解决办法</a><br>刚打开配置gitment 就出现Error：validation failed<br>issue的标签label有长度限制！labels的最大长度限制是50个字符。<br>修改next/layout/_third-party/comments/gitment.swig<br>id: window.location.pathname<br>找到上面一行，将id的值修改成如下即可：<br>id: ‘‘</li>
+<li><p>Next主题更新<br>将Next主题从5.x升级到了7.0.1，更新时需要注意以下几点：</p>
+<ul>
+<li><p>不需要删除原来的next文件夹，可以将新的next文件夹重命名为next7，修改<code>_config.yml</code>文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">theme: next7 #使用新主题</span><br><span class="line">#language: zh-Hans  # next 5.x</span><br><span class="line">language: zh-CN     # next 7</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改主题配置文件\themes\next7_config.yml，比较旧版本主题配置文件_config.yml中改动的地方，一一修改到新版本中<br>主要参考<a href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/UPDATE-FROM-5.1.X.md" target="_blank" rel="noopener">Update from NexT v5.1.x</a></p>
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://dmfanf.github.io/2018/07/06/竞赛回顾-JDATA2018/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -405,7 +594,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-20 21:35:35" itemprop="dateModified" datetime="2019-03-20T21:35:35+08:00">2019-03-20</time>
+                <time title="修改时间：2019-03-20 21:56:24" itemprop="dateModified" datetime="2019-03-20T21:56:24+08:00">2019-03-20</time>
               
             
           </span>
@@ -422,7 +611,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DM-ML/" itemprop="url" rel="index"><span itemprop="name">DM/ML</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据挖掘/" itemprop="url" rel="index"><span itemprop="name">数据挖掘</span></a></span>
 
                 
                 
@@ -714,7 +903,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -733,7 +922,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -749,10 +940,6 @@
                     
                   
                     
-                    
-                      
-                    
-                      
                     
                       
                     
@@ -972,6 +1159,8 @@
 
   
   
+    
+      
     
       
     
