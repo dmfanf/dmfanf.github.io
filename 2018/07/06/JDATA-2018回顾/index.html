@@ -87,12 +87,13 @@
 <meta property="og:site_name" content="fanf&#39;s blog">
 <meta property="og:description" content="JDATA2018，A榜排名171/5182，B榜排名30。这里对参赛过程做了简单的回顾，总结了尚且存在的问题，希望在今后有所借鉴。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pbdwt0fe6.bkt.clouddn.com/blog/20190320/174432527.jpg">
-<meta property="og:updated_time" content="2019-03-20T09:51:39.717Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006LL6iLly1g19icuyw9aj30m3053jrw.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006LL6iLgy1g19ifkr867j30l204bdgi.jpg">
+<meta property="og:updated_time" content="2019-03-20T12:01:44.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDATA2018-用户购买预测-回顾">
 <meta name="twitter:description" content="JDATA2018，A榜排名171/5182，B榜排名30。这里对参赛过程做了简单的回顾，总结了尚且存在的问题，希望在今后有所借鉴。">
-<meta name="twitter:image" content="http://pbdwt0fe6.bkt.clouddn.com/blog/20190320/174432527.jpg">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006LL6iLly1g19icuyw9aj30m3053jrw.jpg">
 
 
 
@@ -501,7 +502,17 @@
 <li>关于异常值：表中两个字段a_num和o_sku_num含有明显的异常值，会对特征提取时相关的mean特征和std特征产生较大的影响。对这些异常值，最简单的方法删除，另外还可以做分箱处理或者log变换处理。</li>
 <li>特征提取阶段：总结了自己提取的特征，发现提取的不够完整，还可以在提取出一些有意义的特征，比如：action时间间隔的各种统计特征，action时间和下单时间间隔的统计特征等等。特征工程方面仍然要付出较多的精力。</li>
 </ol>
-<p>tupian<br><img src="http://pbdwt0fe6.bkt.clouddn.com/blog/20190320/174432527.jpg" alt="feature1"></p>
+<h1 id="更新-TOP10方案学习"><a href="#更新-TOP10方案学习" class="headerlink" title="更新 - TOP10方案学习"></a>更新 - TOP10方案学习</h1><p>以下几点是很值得以后改进的地方：</p>
+<ol>
+<li>数据分析方面<br>不仅仅是对表中各个变量进行统计分析，还需要从整体分析以便从业务上更好地理解数据。<br>TOP10的数据分析中包括：订单数的用户统计，用户目标品类购买间隔的计数，特定用户非目标品类购买间隔与目标品类购买间隔的可视化，每个月的订单统计，每个月的用户复购率统计，每个月首次购买的时间距1号的间隔，每个月中每天首次订单的用户数分析（可以发现促销日当天的首次订单数突出，同时可以对比每个月中的数据分布）</li>
+<li>训练集选择<ol>
+<li>S1数据集划分：由于选取的用户是在3个月内购买过目标品类的用户，那么如果用户在前两个月没有购买目标品类，那么在第三个月购买目标品类的概率为100%，造成信息泄露。因此如果从最后一个月中提取S1的label，需要把之前两个月中没有购买目标品类的用户删除。</li>
+<li>通过之前的数据分析可以得知4.11和6.18促销的影响很大，因此可以避开或剔除这两个日期。通过数据分析可知大多数用户的复购时间间隔在20-35天左右，可以控制滑窗步长大小为20-35天</li>
+</ol>
+</li>
+<li>特征构建<br>推算特征：我也构建了这个特征，但是没有发现这个特征对预测结果的提升<br><img src="https://ws1.sinaimg.cn/large/006LL6iLly1g19icuyw9aj30m3053jrw.jpg" alt=""><br>另外还发现亚军团队构建了User/SKU Embedding特征，在以后的比赛中可以尝试<br><img src="https://ws1.sinaimg.cn/large/006LL6iLgy1g19ifkr867j30l204bdgi.jpg" alt=""></li>
+<li>评价指标优化<br>冠军团队使用S2的评价函数作为目标函数，对S2的label做了log变换/分位数回归</li>
+</ol>
 
       
     </div>
@@ -701,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#赛题说明"><span class="nav-number">1.</span> <span class="nav-text">赛题说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案概述"><span class="nav-number">2.</span> <span class="nav-text">解决方案概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据集划分"><span class="nav-number">3.</span> <span class="nav-text">数据集划分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特征工程"><span class="nav-number">4.</span> <span class="nav-text">特征工程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模型设计和融合"><span class="nav-number">5.</span> <span class="nav-text">模型设计和融合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#赛题说明"><span class="nav-number">1.</span> <span class="nav-text">赛题说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方案概述"><span class="nav-number">2.</span> <span class="nav-text">解决方案概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据集划分"><span class="nav-number">3.</span> <span class="nav-text">数据集划分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特征工程"><span class="nav-number">4.</span> <span class="nav-text">特征工程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模型设计和融合"><span class="nav-number">5.</span> <span class="nav-text">模型设计和融合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新-TOP10方案学习"><span class="nav-number">7.</span> <span class="nav-text">更新 - TOP10方案学习</span></a></li></ol></div>
             
 
           </div>
