@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="JDATA2018,A榜排名171/5182，B榜意外升到了30名。这里对参赛过程做了简单的回顾，总结了尚且存在的问题，希望在今后有所借鉴。">
+<meta name="description" content="JDATA2018,A榜排名171/5182，B榜排名30。这里对参赛过程做了简单的回顾，总结了尚且存在的问题，希望在今后有所借鉴。">
 <meta name="keywords" content="data mining,competition">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDATA2018-用户购买预测-回顾">
 <meta property="og:url" content="http://dmfanf.github.io/2018/07/06/JDATA-2018回顾/index.html">
 <meta property="og:site_name" content="fanf&#39;s blog">
-<meta property="og:description" content="JDATA2018,A榜排名171/5182，B榜意外升到了30名。这里对参赛过程做了简单的回顾，总结了尚且存在的问题，希望在今后有所借鉴。">
+<meta property="og:description" content="JDATA2018,A榜排名171/5182，B榜排名30。这里对参赛过程做了简单的回顾，总结了尚且存在的问题，希望在今后有所借鉴。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-06T12:41:47.094Z">
+<meta property="og:updated_time" content="2019-03-20T01:54:14.727Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDATA2018-用户购买预测-回顾">
-<meta name="twitter:description" content="JDATA2018,A榜排名171/5182，B榜意外升到了30名。这里对参赛过程做了简单的回顾，总结了尚且存在的问题，希望在今后有所借鉴。">
+<meta name="twitter:description" content="JDATA2018,A榜排名171/5182，B榜排名30。这里对参赛过程做了简单的回顾，总结了尚且存在的问题，希望在今后有所借鉴。">
 
 
 
@@ -362,7 +362,7 @@
       
 
       
-        <p>JDATA2018,A榜排名171/5182，B榜意外升到了30名。这里对参赛过程做了简单的回顾，总结了尚且存在的问题，希望在今后有所借鉴。</p>
+        <p>JDATA2018,A榜排名171/5182，B榜排名30。这里对参赛过程做了简单的回顾，总结了尚且存在的问题，希望在今后有所借鉴。</p>
 <a id="more"></a>
 <p><strong> 建议使用电脑查看公式，手机浏览器中公式渲染有问题 </strong></p>
 <h1 id="赛题说明"><a href="#赛题说明" class="headerlink" title="赛题说明"></a>赛题说明</h1><p>给定用户信息表，用户在过去一年内的订单数据表，行为数据表以及用户对商品的评分表，预测用户在未来一个月内是否会购买目标商品以及购买的时间。<br><strong>评测方式：</strong><br>针对是否购买及购买时间，有两个评价指标：<br>(1) $$S_1=\frac{\sum_{i=1}^N w_io_i}{\sum_{i=1}^N w_i}$$<br>其中$w_i=\frac{1}{1+ln(i)}$，$o_i$代表预测的第$i$个用户的正确标志，预测正确则$o_i=1$，否则$o_i=0$。$N$为选手提交的记录数。<br>（2）$$S_2=\frac{\sum_{u\in U_r} f(u)}{|U_r|}$$其中<br>$$f(u)=<br>\begin{cases}<br>0,&amp; u\notin U_r \<br>\frac{10}{10+d_u^2},&amp; u \in U_r<br>\end{cases}<br>$$<br>$U_r$为答案用户集合，$d_u$表示用户$u$的预测日期与真实日期之间的距离。<br>最终提交得分为：$S=\alpha S_1+(1-\alpha)S_2$，$\alpha=0.4$</p>
@@ -649,7 +649,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -718,7 +718,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
